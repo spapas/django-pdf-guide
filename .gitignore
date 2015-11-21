@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io
 db.sqlite3
+*.pdf
+*.ttf
+.ropeproject
 
 ### Django ###
 *.log
