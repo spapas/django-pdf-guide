@@ -11,7 +11,7 @@ if __name__ == '__main__':
     pdfmetrics.registerFont(TTFont('DejaVuSans', 'DejaVuSans.ttf'))
 
     c.setFont('DejaVuSans', 22)
-    c.drawString(100, 100, u"Καλημέρα ελλάδα.")
+    c.drawString(100, 100, u"Καλημέρα ελλάδα")
 
     c.showPage()
     c.save()
