@@ -1,0 +1,18 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <h1>Books</h1>
+    <table>
+        <tr>
+            <th>ID</th><th>Title</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td><td>{{ book.title }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
