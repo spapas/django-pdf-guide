@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^book_pdf_detail_view/(?P<pk>[0-9]+)/$', views.BookPdfDetailView.as_view(), name='book_pdf_detail_view',),
     url(r'^book_pdf_list_view$', views.BookPdfListView.as_view(), name='book_pdf_list_view',),
     url(r'^book_list_ex$', views.BookExPdfListView.as_view(), name='book_list_ex',),
+    url(r'^cover_book_list$', views.CoverBookPdfListView.as_view(), name='cover_book_list',),
 ]
