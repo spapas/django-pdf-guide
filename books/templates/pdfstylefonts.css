@@ -1,0 +1,23 @@
+{% load static %}
+
+@font-face {
+    font-family: "Calibri";
+    src: url({% static "fonts/calibri.ttf" %});
+}
+@font-face {
+    font-family: "Calibri";
+    src: url({% static "fonts/calibrib.ttf" %});
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Calibri";
+    src: url({% static "fonts/calibrii.ttf" %});
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: "Calibri";
+    src: url({% static "fonts/calibriz.ttf" %});
+    font-weight: bold;
+    font-style: italic, oblique;
+}
+

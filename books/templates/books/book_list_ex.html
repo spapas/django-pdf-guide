@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        {% include "pdfstylefonts.css" %}
+    </style>
+    <link rel='stylesheet' href='{% static "pdfstyle.css" %}'/>
+</head>
+<body>
+    <h1>Λίστα βιβλίων</h1>
+    <img src='{% static "pony.png" %}' />
+    <table>
+        <tr>
+            <th>ID</th><th>Title</th><th>Cover</th>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td><td>{{ book.title }}</td><td><img src='{{ book.cover.url }}' /></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

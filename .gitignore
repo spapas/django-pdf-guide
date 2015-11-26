@@ -3,6 +3,7 @@ db.sqlite3
 *.pdf
 *.ttf
 .ropeproject
+media/
 
 ### Django ###
 *.log

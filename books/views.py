@@ -45,3 +45,9 @@ class BookPdfListView(PdfResponseMixin, ListView):
 class BookPdfDetailView(PdfResponseMixin, DetailView):
         context_object_name = 'book'
         model = Book
+
+
+class BookExPdfListView(PdfResponseMixin, ListView):
+    context_object_name = 'books'
+    model = Book
+    template_name = 'books/book_list_ex.html'
