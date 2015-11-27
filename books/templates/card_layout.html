@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+    {% include "pdfstylefonts.css" %}
+</style>
+<style type='text/css'>
+    @page {
+        size: 8.56cm 5.398cm;
+        margin: 0.0cm 0.0cm 0.0cm 0.0cm;
+        padding: 0;
+
+        @frame table_frame {
+            /* -pdf-frame-border: 1; */
+            top:  2.4cm;
+            left: 0.4cm;
+            width: 5.5cm;
+            height: 3cm;
+        }
+
+        @frame photo_frame {
+            /* -pdf-frame-border: 1; */
+            top:  2.4cm;
+            left: 6.2cm;
+            width: 1.9cm;
+            height: 2.2cm;
+        }
+    }
+
+    @page front_page {
+        size: 8.56cm 5.398cm;
+        margin: 0.0cm 0.0cm 0.0cm 0.0cm;
+        padding: 0;
+
+        @frame table_frame {
+            /* -pdf-frame-border: 1; */
+            top:  2.4cm;
+            left: 0.4cm;
+            width: 5.5cm;
+            height: 3cm;
+        }
+
+        @frame photo_frame {
+            /* -pdf-frame-border: 1; */
+            top:  2.4cm;
+            left: 6.2cm;
+            width: 1.9cm;
+            height: 2.2cm;
+        }
+    }
+
+    @page back_page {
+        size: 8.56cm 5.398cm;
+        margin: 0.0cm 0.0cm 0.0cm 0.0cm;
+        padding: 0;
+
+        @frame barcode_frame {
+            /* -pdf-frame-border: 1; */
+            top:  3.9cm;
+            left: 1.8cm;
+            width: 4.9cm;
+            height: 1.1cm;
+        }
+    }
+
+    *, html {
+        font-family: "Calibri";
+        font-size: 8pt;
+        line-height: 80%;
+    }
+
+    .bigger {
+        font-size:9pt;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    {% for book in books %}
+        <div>
+            <! -- Here I print the card data. It fits exactly in the table_frame so ... ->
+            {{ book.title }}<br />
+            Data line 2<br />
+            Data line 3<br />
+            Data line 4<br />
+            Data line 5<br />
+            Data line 6<br />
+            Data line 7<br />
+            Data line 8<br />
+            Data line 9<br />
+            Data line 10<br />
+        </div>
+        <div>
+            <! -- This photo here will be outputted to the photo_frame -->
+            <img src='{{ book.cover.url }}' style='width:1.9cm ; height: 2.2cm ; ' />
+        </div>
+
+        <! -- Now the template is chaned to print the back of the card -->
+        <pdf:nexttemplate name="back_page" />
+        <pdf:nextpage />
+
+        <div >
+            <center>
+                <! -- Print the barcode to the barcode_frame -->
+                <pdf:barcode value="{{ book.id }}" type="code128" humanreadable="1" barwidth="0.43mm" barheight="0.6cm" align="middle" />
+            </center>
+        </div>
+        <!-- Use the front_page template again for the next card -->
+        <pdf:nexttemplate name="front_page" />
+        <pdf:nextpage />
+    {% endfor %}
+</body>
+</html>
