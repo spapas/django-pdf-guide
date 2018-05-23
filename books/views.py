@@ -52,7 +52,7 @@ class CoverPdfResponseMixin(PdfResponseMixin, ):
         merger = PdfFileMerger()
         merger.append(open(self.cover_pdf, "rb"))
         
-        pdf_fo = io.StringIO.StringIO()
+        pdf_fo = io.BytesIO()
         self.write_pdf(pdf_fo)
         merger.append(pdf_fo)
         
