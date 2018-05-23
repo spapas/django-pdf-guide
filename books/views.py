@@ -1,4 +1,4 @@
-import os, StringIO
+import os, io
 
 from django.conf import settings
 from django.shortcuts import render
@@ -52,7 +52,7 @@ class CoverPdfResponseMixin(PdfResponseMixin, ):
         merger = PdfFileMerger()
         merger.append(open(self.cover_pdf, "rb"))
         
-        pdf_fo = StringIO.StringIO()
+        pdf_fo = io.StringIO.StringIO()
         self.write_pdf(pdf_fo)
         merger.append(pdf_fo)
         

@@ -1,15 +1,15 @@
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.contrib import admin
 
-import views
+import books.views
 
 urlpatterns = [
-    url(r'^$', views.BookIndexTemplateView.as_view(), name='book_index',),
-    url(r'^books_plain_old_view$', views.books_plain_old_view, name='books_plain_old_view',),
-    url(r'^books_plain_old_view_content_disp$', views.books_plain_old_view_content_disp, name='books_plain_old_view_content_disp',),
-    url(r'^book_pdf_detail_view/(?P<pk>[0-9]+)/$', views.BookPdfDetailView.as_view(), name='book_pdf_detail_view',),
-    url(r'^book_pdf_list_view$', views.BookPdfListView.as_view(), name='book_pdf_list_view',),
-    url(r'^book_list_ex$', views.BookExPdfListView.as_view(), name='book_list_ex',),
-    url(r'^cover_book_list$', views.CoverBookPdfListView.as_view(), name='cover_book_list',),
-    url(r'^book_pdf_card_detail/(?P<pk>[0-9]+)/$', views.BookCardPdfListView.as_view(), name='book_pdf_card_detail',),
+    path('', books.views.BookIndexTemplateView.as_view(), name='book_index',),
+    path('books_plain_old_view', books.views.books_plain_old_view, name='books_plain_old_view',),
+    path('books_plain_old_view_content_disp', books.views.books_plain_old_view_content_disp, name='books_plain_old_view_content_disp',),
+    path('book_pdf_detail_view/<int:pk>/', books.views.BookPdfDetailView.as_view(), name='book_pdf_detail_view',),
+    path('book_pdf_list_view', books.views.BookPdfListView.as_view(), name='book_pdf_list_view',),
+    path('book_list_ex', books.views.BookExPdfListView.as_view(), name='book_list_ex',),
+    path('cover_book_list', books.views.CoverBookPdfListView.as_view(), name='cover_book_list',),
+    path('book_pdf_card_list', books.views.BookCardPdfListView.as_view(), name='book_pdf_card_list',),
 ]
