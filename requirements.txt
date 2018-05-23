@@ -2,8 +2,8 @@ Django==2.0.5
 Pillow==5.1.0
 PyPDF2==1.26.0
 django-extensions==2.0.7
--e git+https://github.com/chrisglass/django-xhtml2pdf@0dc743715401c56f0f3f4b58b695b937ae49b34f#egg=django_xhtml2pdf
-html5lib==0.9999999
+-e git+https://github.com/spapas/django-xhtml2pdf@bcfd2c38e8396a6c62fa6e3fa83611712266241a#egg=django_xhtml2pdf
+html5lib==1.0.1
 reportlab==3.4.0
 six==1.11.0
 xhtml2pdf==0.2.2
